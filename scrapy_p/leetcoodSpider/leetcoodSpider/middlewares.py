@@ -4,13 +4,11 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-import random
-from builtins import object
+
 from scrapy import signals
-from scrapy_test1.settings import USER_AGENTS
 
 
-class ScrapyTest1SpiderMiddleware(object):
+class LeetcoodspiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -58,7 +56,7 @@ class ScrapyTest1SpiderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-class ScrapyTest1DownloaderMiddleware(object):
+class LeetcoodspiderDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -103,11 +101,3 @@ class ScrapyTest1DownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
-
-class RandomUserAgent(object):
-    def process_requests(self,request,spider):
-        print("222")
-        user_agent = random.choice(USER_AGENTS)
-        print(user_agent)
-        print("111")
-        request.headers.setdefault("User-Agent",user_agent)

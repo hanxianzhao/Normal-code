@@ -10,7 +10,6 @@ class BasketballSpider(scrapy.Spider):
     start_urls = ['https://nba.stats.qq.com/player/list.htm']
 
     def parse(self, response):
-        print("111")
         print(response.url)
         print(dir(response))
         print(response.headers)
@@ -34,6 +33,6 @@ class BasketballSpider(scrapy.Spider):
         # print(content.xpath('./table').extract())
         # print("2")
         # //div[@class="teams"]//tbody//span
-        content = response.text
-        print(content)
+        # content = response.text
+        # print(content)
         # re.findall("")
